@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="result"> Result </h1>
+<br>
+
+<form method="POST" action="/result">
+    <div id="wrapper">
+
+        {{form.download(class="btn btn-primary")}}
+    </div>
+
+</form>
+
+
+
+<br>
+<br>
+<br>
+
+<table class="table table-responsive table-striped table-hover">
+
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Repository Name </th>
+        <th scope="col">Url</th>
+        <th scope="col">Handle</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for x in data %}
+    <tr>
+        <td>{{x[0]}}</td>
+        <td>
+            <a href={{x[1]}}>{{x[1]}}</a>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<style>
+
+    .result{
+    text-align:center;
+    }
+
+#wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+
+
+{%  endblock  %}
